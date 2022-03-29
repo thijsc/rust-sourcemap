@@ -143,6 +143,8 @@ pub struct SourceView<'a> {
     lines: RefCell<Vec<(*const u8, usize)>>,
 }
 
+unsafe impl<'a> Send for SourceView<'a> {}
+
 impl<'a> Clone for SourceView<'a> {
     fn clone(&self) -> SourceView<'a> {
         SourceView {
